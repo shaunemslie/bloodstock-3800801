@@ -1,0 +1,6 @@
+{
+	"appId": "com.bloodstock.app",
+	"appName": "Bloodstock",
+	"webDir": "../../dist/apps/mobile",
+	"bundledWebRuntime": false
+}

@@ -1,0 +1,53 @@
+@import '~viewerjs/dist/viewer.css';
+
+@import "~@ionic/angular/css/core.css";
+
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import "~@ionic/angular/css/display.css";
+
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+// CLASSES
+
+.bs-border-b {
+  border-bottom: .55px solid rgba(0, 0, 0, 0.2);
+}
+
+// CUS
+
+ion-toolbar {
+  ion-searchbar {
+    height: 30px !important;
+    padding: 0 !important;
+    border-radius: 15px;
+    ion-icon {
+      width: 18px !important;
+      padding-left: 2px;
+    }
+  }
+}
+
+// MEDIA
+
+@media (display-mode: standalone) {
+  ion-tab-bar {
+    padding-top: 2px;
+    padding-bottom: 28px;
+  }
+}
+
+// DEEP
+
+.infinite-loading {
+  margin-top: 32px;
+}
+
+.spinner-crescent {
+  color: var(--ion-color-primary);
+}

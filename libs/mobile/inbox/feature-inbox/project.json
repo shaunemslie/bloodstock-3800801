@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/mobile/inbox/feature-inbox",
+  "sourceRoot": "libs/mobile/inbox/feature-inbox/src",
+  "prefix": "bloodstock",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/mobile/inbox/feature-inbox"],
+      "options": {
+        "jestConfig": "libs/mobile/inbox/feature-inbox/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/mobile/inbox/feature-inbox/src/**/*.ts",
+          "libs/mobile/inbox/feature-inbox/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

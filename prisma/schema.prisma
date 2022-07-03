@@ -1,0 +1,118 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// @block USER
+
+model User {
+  id         String  @id @default(cuid()) @db.VarChar(25)
+  email      String  @unique @db.VarChar(64)
+  username   String  @unique @db.VarChar(32)
+  isVerified Boolean @map("is_verified")
+  photoUrl   String? @map("photo_url") @db.VarChar(255)
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  loft Loft?
+
+  following Follow[]
+  bids      Bid[]
+  purchases Listing[]
+
+  @@map("users")
+}
+
+// @block LOFT
+
+model Loft {
+  id         String  @id @default(cuid()) @db.VarChar(25)
+  handle     String  @unique @db.VarChar(32)
+  name       String  @db.VarChar(32)
+  isVerified Boolean @map("is_verified")
+  photoUrl   String? @map("photo_url")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  user   User   @relation(fields: [userId], references: [id])
+  userId String @unique @map("user_id") @db.VarChar(25)
+
+  listings  Listing[]
+  followers Follow[]
+
+  @@map("lofts")
+}
+
+// @block LISTINGS
+
+model Listing {
+  id          String   @id @default(cuid()) @db.VarChar(25)
+  title       String   @db.VarChar(255)
+  description String   @db.Text
+  tags        String[]
+  photoUrls   String[] @map("photo_urls")
+
+  listingType  ListingType @map("listing_type")
+  startPrice   Int?        @map("start_price")
+  startDate    DateTime?   @map("start_date")
+  endDate      DateTime?   @map("end_date")
+  price        Int?
+  bidIncrement Int?        @map("bid_increment")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  loft      Loft    @relation(fields: [loftId], references: [id])
+  loftId    String  @map("loft_id") @db.VarChar(25)
+  purchaser User?   @relation(fields: [userId], references: [id])
+  userId    String? @map("u_id") @db.VarChar(25)
+
+  bids Bid[]
+
+  @@map("listings")
+}
+
+//
+
+model Follow {
+  id String @id @default(cuid()) @db.VarChar(25)
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  user   User   @relation(fields: [userId], references: [id])
+  userId String @map("user_id") @db.VarChar(25)
+
+  loft   Loft   @relation(fields: [loftId], references: [id])
+  loftId String @map("loft_id") @db.VarChar(25)
+
+  @@map("follows")
+}
+
+model Bid {
+  id     String @id @default(cuid()) @db.VarChar(25)
+  amount Int
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  User   User?   @relation(fields: [userId], references: [id])
+  userId String? @map("user_id") @db.VarChar(25)
+
+  Listing   Listing? @relation(fields: [listingId], references: [id])
+  listingId String?  @map("listing_id") @db.VarChar(25)
+
+  @@map("bids")
+}
+
+enum ListingType {
+  Auction
+  FixedPrice
+  BuyoutOption
+}

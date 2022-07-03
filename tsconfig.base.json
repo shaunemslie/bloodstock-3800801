@@ -14,7 +14,27 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@bloodstock/api/user/feature/feed": [
+        "libs/api/user/feature/feed/src/index.ts"
+      ],
+      "@bloodstock/mobile/browse/feature-browse": [
+        "libs/mobile/browse/feature-browse/src/index.ts"
+      ],
+      "@bloodstock/mobile/feature-shell": [
+        "libs/mobile/feature-shell/src/index.ts"
+      ],
+      "@bloodstock/mobile/home/feature-home": [
+        "libs/mobile/home/feature-home/src/index.ts"
+      ],
+      "@bloodstock/mobile/inbox/feature-inbox": [
+        "libs/mobile/inbox/feature-inbox/src/index.ts"
+      ],
+      "@bloodstock/mobile/shared/ui/listing-item": [
+        "libs/mobile/shared/ui/listing-item/src/index.ts"
+      ],
+      "@bloodstock/shared/interfaces": ["libs/shared/interfaces/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

@@ -1,0 +1,17 @@
+<ion-app>
+  <ion-router-outlet></ion-router-outlet>
+
+  <ion-tabs (ionTabsDidChange)="setTab($event)">
+    <ion-tab-bar slot="bottom" class="h-11">
+      <ion-tab-button tab="home" layout="label-hide">
+        <ion-icon [src]="selected === 'home' ? 'assets/icon/home.svg' : 'assets/icon/home-outline.svg'"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button tab="browse" layout="label-hide">
+        <ion-icon [name]="selected === 'browse' ? 'grid' : 'grid-outline'" style="font-size: 26px;"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button tab="inbox" layout="label-hide">
+        <ion-icon [name]="selected === 'inbox' ? 'notifications' : 'notifications-outline'" style="font-size: 28px;"></ion-icon>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-app>

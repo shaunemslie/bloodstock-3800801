@@ -1,0 +1,22 @@
+{
+  "root": "libs/api/user/feature/feed",
+  "sourceRoot": "libs/api/user/feature/feed/src",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/api/user/feature/feed/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/api/user/feature/feed"],
+      "options": {
+        "jestConfig": "libs/api/user/feature/feed/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,5 +1,16 @@
 {
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
-  "projects": {}
+  "projects": {
+    "api": "apps/api",
+    "api-user-feature-feed": "libs/api/user/feature/feed",
+    "mobile": "apps/mobile",
+    "mobile-browse-feature-browse": "libs/mobile/browse/feature-browse",
+    "mobile-e2e": "apps/mobile-e2e",
+    "mobile-feature-shell": "libs/mobile/feature-shell",
+    "mobile-home-feature-home": "libs/mobile/home/feature-home",
+    "mobile-inbox-feature-inbox": "libs/mobile/inbox/feature-inbox",
+    "mobile-shared-ui-listing-item": "libs/mobile/shared/ui/listing-item",
+    "shared-interfaces": "libs/shared/interfaces"
+  }
 }

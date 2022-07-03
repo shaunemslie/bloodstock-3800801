@@ -1,0 +1,15 @@
+{
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5432,
+      "askForPassword": true,
+      "driver": "PostgreSQL",
+      "name": "bloodstock",
+      "connectString": "postgresql://postgres:zita%40Jones13!@0.0.0.0:5432/bloodstock?schema=public"
+    }
+  ],
+  "vsicons.presets.angular": true
+}

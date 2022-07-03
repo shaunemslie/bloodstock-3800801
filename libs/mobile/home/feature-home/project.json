@@ -1,0 +1,28 @@
+{
+  "projectType": "library",
+  "root": "libs/mobile/home/feature-home",
+  "sourceRoot": "libs/mobile/home/feature-home/src",
+  "prefix": "bloodstock",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": [
+        "coverage/libs/mobile/home/feature-home"
+      ],
+      "options": {
+        "jestConfig": "libs/mobile/home/feature-home/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/mobile/home/feature-home/src/**/*.ts",
+          "libs/mobile/home/feature-home/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}
