@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Feed } from '@bloodstock/shared/interfaces';
-import { delay, Observable, retry } from 'rxjs';
+import { debounceTime, Observable, retry } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -15,6 +15,6 @@ export class HomeService {
     const params = new HttpParams().append('id', id);
     return this.http
       .get<Feed[]>(`${this.apiUrl}/feed`, { params: params })
-      .pipe(delay(2000), retry(3));
+      .pipe(debounceTime(600), retry(3));
   }
 }

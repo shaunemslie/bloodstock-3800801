@@ -1,13 +1,128 @@
-<ion-header translucent="true">
+<ion-content fullscreen forceOverscroll>
+  <ion-header collapse="condense" class="pl-[3px]">
+    <ion-toolbar>
+      <ion-button id="open-filter" fill="outline" class="w-[86%] ml-[7%]">
+        <p>
+          <span class="block pt-0.5 font-semibold">Loft Manager</span>
+          <span class="block text-xs font-medium opacity-50">Get started with listings of your own!</span>
+        </p>
+      </ion-button>
+    </ion-toolbar>
+    <ion-toolbar>
+      <ion-title size="large" class="text-2xl">Browse</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list>
+    <ion-list-header>
+      <ion-label class="text-[17px] mt-3">Featured Lofts</ion-label>
+      <ion-button class="h-5 mt-3" color="secondary">See All</ion-button>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>Pokémon Yellow</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Mega Man X</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>The Legend of Zelda</ion-label>
+    </ion-item>
+
+    <ion-item></ion-item>
+
+    <ion-list-header>
+      <ion-label class="text-[17px] mt-2">New Articles</ion-label>
+      <ion-button class="h-5 mt-3" color="secondary">See All</ion-button>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>Pac-Man</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Super Mario World</ion-label>
+    </ion-item>
+
+    <ion-item></ion-item>
+
+    <ion-list-header>
+      <ion-label class="text-[17px] mt-2">Trending Listings</ion-label>
+      <ion-button class="h-5 mt-3" color="secondary">See All</ion-button>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>Pac-Man</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Super Mario World</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-modal trigger="open-filter">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-button (click)="cancel()">Cancel</ion-button>
+          </ion-buttons>
+          <ion-title>Filter</ion-title>
+          <ion-buttons slot="end">
+            <ion-button>Apply</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-item lines="none" class="mt-2">
+          <ion-label class="font-semibold"> Sort by </ion-label>
+        </ion-item>
+        <ion-item button>
+          <ion-label> Family </ion-label>
+          <ion-label slot="end" color="medium">Spritzy</ion-label>
+        </ion-item>
+        <ion-item-divider color="light"></ion-item-divider>
+        <ion-item button>
+          <ion-label class="font-semibold"> Family </ion-label>
+          <ion-label slot="end" color="medium">Spritzy</ion-label>
+        </ion-item>
+        <ion-item-divider color="light"></ion-item-divider>
+        <ion-item lines="none">
+          <ion-label class="font-semibold"> Date </ion-label>
+        </ion-item>
+        <ion-datetime presentation="month-year" class="ml-3 bg-opacity-25"></ion-datetime>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-content>
+<!--<ion-header translucent="true">
   <ion-toolbar>
-    <ion-title>Settings</ion-title>
+    <ion-searchbar placeholder="Search Lofts, Listings & more"></ion-searchbar>
+    <ion-buttons slot="end">
+      <ion-button strong id="open-filter" color="secondary" class="pt-[5.5px] h-[30px] pb-0">
+        Filter
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content fullscreen="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Settings</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-modal trigger="open-filter">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-button color="secondary" (click)="cancel()">Cancel</ion-button>
+          </ion-buttons>
+          <ion-title>Filter</ion-title>
+          <ion-buttons slot="end">
+            <ion-button strong color="secondary">Confirm</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-item>
+        </ion-item>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
 </ion-content>
+-->

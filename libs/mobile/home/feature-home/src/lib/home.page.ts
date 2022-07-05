@@ -19,12 +19,12 @@ export class HomePageComponent {
     this.init();
   }
 
-  async refresh(e: any) {
-    await lastValueFrom(this.init()).then(() => e.target.complete());
-  }
-
   async loadFeed(e: any) {
     await lastValueFrom(this.store.dispatch(new LoadFeed())).then(() => e.target.complete());
+  }
+
+  async refresh(e: any) {
+    await lastValueFrom(this.init()).then(() => e.target.complete());
   }
 
   init(): Observable<unknown> {
