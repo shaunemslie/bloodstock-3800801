@@ -1,4 +1,5 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, ViewChild } from '@angular/core';
+import { IonModal } from '@ionic/angular';
 
 @Component({
   selector: 'bloodstock-browse',
@@ -6,4 +7,11 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   styles: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BrowsePageComponent {}
+export class BrowsePageComponent {
+  @ViewChild(IonModal) modal!: IonModal;
+
+  cancel() {
+    this.modal.dismiss(null, 'cancel');
+  }
+}
+

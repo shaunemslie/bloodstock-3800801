@@ -23,13 +23,23 @@
 
 ion-toolbar {
   ion-searchbar {
-    height: 30px !important;
-    padding: 0 !important;
     border-radius: 15px;
+    height: 30px !important;
+    padding-top: 5.5px !important;
+    padding-bottom: 5.5px !important;
+    padding-inline: 0 !important;
+    max-width: calc(100% - 12px);
+    margin-left: 6px;
     ion-icon {
       width: 18px !important;
       padding-left: 2px;
     }
+  }
+}
+
+.buttons-last-slot {
+  > * {
+    font-weight: 500 !important;
   }
 }
 
