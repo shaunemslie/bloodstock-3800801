@@ -1,7 +1,7 @@
 export class InitFeed {
-  static readonly type = '[Feed] InitFeed';
+  static readonly type = '[Home] InitFeed User';
 }
 
 export class LoadFeed {
-  static readonly type = '[Feed] LoadFeed';
+  static readonly type = '[Home] LoadFeed User';
 }

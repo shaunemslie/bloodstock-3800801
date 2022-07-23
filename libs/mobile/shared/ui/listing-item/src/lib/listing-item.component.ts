@@ -13,29 +13,25 @@ import { NgPipesModule } from 'ngx-pipes';
 @Component({
   selector: 'bloodstock-listing-item',
   templateUrl: './listing-item.component.html',
-  styles: [
-    `
-      :host {
-        display: block;
-      }
-    `,
-  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ListingItemComponent {
   @Input() data!: Feed | undefined;
 
-  toDate(val: any): Date {
-    return new Date(val);
+  toDate(val: string | Date | null): Date | undefined {
+    if (val) return new Date(val);
+    return;
   }
 }
 
 @Component({
   selector: 'bloodstock-listing-item-skeleton',
   templateUrl: 'skeleton.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ListingItemSkeletonComponent {}
+export class ListingItemSkeletonComponent {
+  arr = Array(8);
+}
 
 @NgModule({
   imports: [CommonModule, IonicModule, NgxViewerModule, NgPipesModule],

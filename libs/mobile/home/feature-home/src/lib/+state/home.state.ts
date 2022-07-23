@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { Action, Selector, State, StateContext } from '@ngxs/store';
 import { append, patch } from '@ngxs/store/operators';
 
-import { HomeService } from '../home.service';
+import { HomeApiService } from '../home-api.service';
 import { InitFeed, LoadFeed } from './home.actions';
 import { Feed } from '@bloodstock/shared/interfaces';
 
@@ -24,29 +24,33 @@ export class HomeState {
     return state.listings;
   }
 
-  constructor(private homeService: HomeService) {}
+  constructor(private homeApiService: HomeApiService) {}
 
   @Action(InitFeed)
   initFeed(ctx: StateContext<HomeStateModel>) {
-    return this.homeService.fetchFeed('cl52l17bi0020itsek1p4nt2g').pipe(
-      tap((listings: Feed[]) => {
-        ctx.setState({
-          listings: listings
-        });
-      })
-    );
+    return this.homeApiService
+      .getFeed({ id: 'cl52l17bi0020itsek1p4nt2g' })
+      .pipe(
+        tap((listings: Feed[]) => {
+          ctx.setState({
+            listings: listings,
+          });
+        })
+      );
   }
 
   @Action(LoadFeed)
   loadFeed(ctx: StateContext<HomeStateModel>) {
-    return this.homeService.fetchFeed('cl52l17bi0020itsek1p4nt2g').pipe(
-      tap((listings: Feed[]) => {
-        ctx.setState(
-          patch({
-            listings: append(listings),
-          })
-        );
-      })
-    );
+    return this.homeApiService
+      .getFeed({ id: 'cl52l17bi0020itsek1p4nt2g' })
+      .pipe(
+        tap((listings: Feed[]) => {
+          ctx.setState(
+            patch({
+              listings: append(listings),
+            })
+          );
+        })
+      );
   }
 }

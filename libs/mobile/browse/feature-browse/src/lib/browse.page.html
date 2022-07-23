@@ -1,128 +1,193 @@
-<ion-content fullscreen forceOverscroll>
-  <ion-header collapse="condense" class="pl-[3px]">
-    <ion-toolbar>
-      <ion-button id="open-filter" fill="outline" class="w-[86%] ml-[7%]">
+<ion-header class="h-0 ion-no-border" collapse="fade">
+  <ion-toolbar class="h-0"></ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" [forceOverscroll]="true">
+  <ion-header>
+    <ion-toolbar color="undefined">
+
+      <!-- TODO: Refactor Button -->
+      <ion-button class="w-[84%] ml-[8%]" id="open-filter" size="large" expand="block" color="tertiary">
         <p>
-          <span class="block pt-0.5 font-semibold">Loft Manager</span>
-          <span class="block text-xs font-medium opacity-50">Get started with listings of your own!</span>
+          <span class="block -mt-0.5 text-xl italic font-semibold">
+            <svg class="inline-block -mb-[7px] h-7" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <g id="Layer-1">
+                <path d="M23.3478 6.35092C22.913 6.58487 22.3395 6.83758 21.6271 7.10904C20.9148 7.38051 19.9487 7.67139 18.7289 7.9817C17.5091 8.292 16.1005 8.54354 14.503 8.73632C12.9056 8.92909 11.4796 9.0301 10.2252 9.03933C8.97084 9.04857 8.12982 9.14819 7.70218 9.33821C7.27454 9.52822 6.96365 9.70659 6.76949 9.87331C6.57534 10.04 6.42169 10.2145 6.30854 10.3967C6.25197 10.4878 6.1954 10.5789 6.13882 10.67C6.68086 10.7397 7.22289 10.8094 7.76492 10.8791C8.84899 11.0185 9.96402 11.0959 11.11 11.1112C12.256 11.1265 13.3264 11.0934 14.321 11.0119C15.3157 10.9303 16.3295 10.7958 17.3623 10.6082C18.3951 10.4207 19.2117 10.2145 19.812 9.98957C20.4124 9.76464 20.9115 9.52035 21.3094 9.25668C21.7072 8.99302 22.133 8.62145 22.5868 8.14199C23.0407 7.66253 23.3807 7.24058 23.607 6.87615C23.8333 6.51173 23.9554 6.27459 23.9732 6.16476C23.9821 6.10984 23.9911 6.05492 24 6C23.7826 6.11697 23.5652 6.23395 23.3478 6.35092Z" fill="#fff" fill-rule="evenodd" opacity="1" stroke="none"></path>
+                <path d="M21.9384 9.81868C21.755 9.9195 21.2785 10.0888 20.509 10.3267C19.7394 10.5646 18.6876 10.8051 17.3534 11.0482C16.0192 11.2914 14.5742 11.4453 13.0185 11.5102C11.4627 11.575 9.87413 11.5204 8.2528 11.3462C6.63147 11.172 5.64096 11.3562 5.28127 11.899C5.10143 12.1704 4.92158 12.4418 4.74174 12.7132C5.38801 12.8481 6.03429 12.983 6.68057 13.118C7.97312 13.3878 8.88624 13.5512 9.41993 13.6079C9.95363 13.6647 10.8763 13.7053 12.1878 13.7296C13.4994 13.754 14.6222 13.7196 15.5561 13.6264C16.4901 13.5332 17.2096 13.4103 17.7146 13.2578C18.2197 13.1052 18.6777 12.921 19.0887 12.7052C19.4997 12.4893 19.9708 12.1604 20.502 11.7184C21.0332 11.2764 21.4579 10.848 21.7759 10.4331C22.0939 10.0183 22.2464 9.78698 22.2332 9.73917C22.2267 9.71526 22.2201 9.69136 22.2136 9.66746C22.1219 9.71786 22.0301 9.76827 21.9384 9.81868Z" fill="#fff" fill-rule="evenodd" opacity="1" stroke="none"></path>
+                <path d="M19.6713 13.3602C19.4914 13.4391 18.8952 13.5742 17.8827 13.7656C16.8701 13.957 15.7635 14.0851 14.5627 14.1499C13.3619 14.2147 12.0384 14.1994 10.5922 14.1039C9.146 14.0085 7.75637 13.822 6.42331 13.5444C5.09025 13.2668 4.26293 13.3464 3.94134 13.7832C3.78055 14.0016 3.61976 14.22 3.45897 14.4384C3.95277 14.6121 4.44657 14.7859 4.94037 14.9596C5.92797 15.307 7.03945 15.5989 8.27482 15.8352C9.51019 16.0714 10.7801 16.2237 12.0845 16.292C13.389 16.3603 14.3086 16.355 14.8435 16.2761C15.3784 16.1972 15.9579 16.0362 16.5821 15.7932C17.2063 15.5502 17.8144 15.2135 18.4064 14.7831C18.9984 14.3527 19.4087 14.0122 19.6374 13.7614C19.8661 13.5107 19.9739 13.3615 19.9608 13.3137C19.9542 13.2898 19.9477 13.2659 19.9411 13.2419C19.8512 13.2814 19.7612 13.3208 19.6713 13.3602Z" fill="#fff" fill-rule="evenodd" opacity="1" stroke="none"></path>
+                <path d="M2.76218 15.2565C2.50253 15.5692 1.97725 16.1029 1.18635 16.8577C0.790901 17.2351 0.39545 17.6124-4.84461e-16 17.9898C0.135209 17.993 0.270417 17.9962 0.405626 17.9995C0.676043 18.0059 1.0078 17.9561 1.40091 17.8501C1.79401 17.744 2.12636 17.6264 2.39795 17.4971C2.66954 17.3679 2.92623 17.2018 3.16803 16.9989C3.40983 16.796 3.62008 16.7229 3.79878 16.7798C3.97747 16.8366 4.2747 16.8708 4.69045 16.8824C5.1062 16.8939 5.44273 16.879 5.70004 16.8376C5.95735 16.7962 6.30994 16.6825 6.75784 16.4963C6.98178 16.4033 7.20573 16.3102 7.42967 16.2171C6.94064 16.0783 6.45161 15.9395 5.96258 15.8006C4.98452 15.523 4.27152 15.2847 3.82358 15.0857C3.37564 14.8868 3.02184 14.9437 2.76218 15.2565Z" fill="#fff" fill-rule="evenodd" opacity="1" stroke="none"></path>
+              </g>
+            </svg>
+            Loft Manager
+          </span>
+          <span class="block -mt-1 text-sm font-normal">Start uploading your own listings & articles</span>
         </p>
       </ion-button>
+      <!---->
+
     </ion-toolbar>
-    <ion-toolbar>
-      <ion-title size="large" class="text-2xl">Browse</ion-title>
+    <ion-toolbar color="undefined">
+      <ion-title size="large">Browse Bloodstock</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <ion-list>
-    <ion-list-header>
-      <ion-label class="text-[17px] mt-3">Featured Lofts</ion-label>
-      <ion-button class="h-5 mt-3" color="secondary">See All</ion-button>
+  <!--TODO: Refactor small lists INCLUDING TRENDING FURTHER DOWN-->
+  <ion-list class="bs-small-list">
+    <ion-list-header class="min-h-0" lines="inset" color="light">
+      <ion-label class="mt-3 mb-2.5 text-[15px]">Quick Links</ion-label>
     </ion-list-header>
-
-    <ion-item>
-      <ion-label>Pokémon Yellow</ion-label>
+    <ion-item class="text-[15px]" color="light" routerLink="/browse/listings" button>
+      <ion-label class="font-semibold">Listings</ion-label>
     </ion-item>
-    <ion-item>
-      <ion-label>Mega Man X</ion-label>
+    <ion-item class="text-[15px]" color="light" routerLink="/browse/listings/hot" button>
+      <ion-label class="font-semibold">
+        <svg class="inline-block fill-[var(--ion-color-tertiary)] -mb-[1px] -mr-[3px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="13" height="13">
+          <path fill-rule="evenodd" d="M7.998 14.5c2.832 0 5-1.98 5-4.5 0-1.463-.68-2.19-1.879-3.383l-.036-.037c-1.013-1.008-2.3-2.29-2.834-4.434-.322.256-.63.579-.864.953-.432.696-.621 1.58-.046 2.73.473.947.67 2.284-.278 3.232-.61.61-1.545.84-2.403.633a2.788 2.788 0 01-1.436-.874A3.21 3.21 0 003 10c0 2.53 2.164 4.5 4.998 4.5zM9.533.753C9.496.34 9.16.009 8.77.146 7.035.75 4.34 3.187 5.997 6.5c.344.689.285 1.218.003 1.5-.419.419-1.54.487-2.04-.832-.173-.454-.659-.762-1.035-.454C2.036 7.44 1.5 8.702 1.5 10c0 3.512 2.998 6 6.498 6s6.5-2.5 6.5-6c0-2.137-1.128-3.26-2.312-4.438-1.19-1.184-2.436-2.425-2.653-4.81z"></path>
+        </svg>
+        Hot Listings
+      </ion-label>
     </ion-item>
-    <ion-item>
-      <ion-label>The Legend of Zelda</ion-label>
+    <ion-item class="text-[15px]" color="light" routerLink="/browse/lofts" button>
+      <ion-label class="font-semibold">Lofts</ion-label>
     </ion-item>
-
-    <ion-item></ion-item>
-
-    <ion-list-header>
-      <ion-label class="text-[17px] mt-2">New Articles</ion-label>
-      <ion-button class="h-5 mt-3" color="secondary">See All</ion-button>
-    </ion-list-header>
-
-    <ion-item>
-      <ion-label>Pac-Man</ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label>Super Mario World</ion-label>
-    </ion-item>
-
-    <ion-item></ion-item>
-
-    <ion-list-header>
-      <ion-label class="text-[17px] mt-2">Trending Listings</ion-label>
-      <ion-button class="h-5 mt-3" color="secondary">See All</ion-button>
-    </ion-list-header>
-
-    <ion-item>
-      <ion-label>Pac-Man</ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label>Super Mario World</ion-label>
+    <ion-item class="text-[15px]" color="light" routerLink="/browse/articles" button>
+      <ion-label class="font-semibold">Trending Tags</ion-label>
     </ion-item>
   </ion-list>
+  <!---->
 
-  <ion-modal trigger="open-filter">
-    <ng-template>
-      <ion-header>
-        <ion-toolbar>
-          <ion-buttons slot="start">
-            <ion-button (click)="cancel()">Cancel</ion-button>
-          </ion-buttons>
-          <ion-title>Filter</ion-title>
-          <ion-buttons slot="end">
-            <ion-button>Apply</ion-button>
-          </ion-buttons>
-        </ion-toolbar>
-      </ion-header>
-      <ion-content>
-        <ion-item lines="none" class="mt-2">
-          <ion-label class="font-semibold"> Sort by </ion-label>
-        </ion-item>
-        <ion-item button>
-          <ion-label> Family </ion-label>
-          <ion-label slot="end" color="medium">Spritzy</ion-label>
-        </ion-item>
-        <ion-item-divider color="light"></ion-item-divider>
-        <ion-item button>
-          <ion-label class="font-semibold"> Family </ion-label>
-          <ion-label slot="end" color="medium">Spritzy</ion-label>
-        </ion-item>
-        <ion-item-divider color="light"></ion-item-divider>
-        <ion-item lines="none">
-          <ion-label class="font-semibold"> Date </ion-label>
-        </ion-item>
-        <ion-datetime presentation="month-year" class="ml-3 bg-opacity-25"></ion-datetime>
-      </ion-content>
-    </ng-template>
-  </ion-modal>
-</ion-content>
-<!--<ion-header translucent="true">
-  <ion-toolbar>
-    <ion-searchbar placeholder="Search Lofts, Listings & more"></ion-searchbar>
-    <ion-buttons slot="end">
-      <ion-button strong id="open-filter" color="secondary" class="pt-[5.5px] h-[30px] pb-0">
-        Filter
+  <!--TODO: Lofts section-->
+  <ion-list class="mt-3">
+    <bloodstock-item-section label="Featured Lofts" btnLabel="View Featured..." (btnClick)="navigate('/browse/lofts/featured')">
+      <ion-slides [options]="{'freeMode': true}">
+        <ion-slide>
+          <ion-card class="w-full">
+            <ion-card-header>
+              Slide 1
+            </ion-card-header>
+            <ion-card-content>
+              Test
+            </ion-card-content>
+          </ion-card>
+        </ion-slide>
+        <ion-slide>
+          <ion-card class="w-full">
+            <ion-card-header>
+              Slide 1
+            </ion-card-header>
+            <ion-card-content>
+              Test
+            </ion-card-content>
+          </ion-card>
+        </ion-slide>
+        <ion-slide>
+          <ion-card class="w-full">
+            <ion-card-header>
+              Slide 1
+            </ion-card-header>
+            <ion-card-content>
+              Test
+            </ion-card-content>
+          </ion-card>
+        </ion-slide>
+        <ion-slide>
+          <ion-card class="w-full">
+            <ion-card-header>
+              Slide 1
+            </ion-card-header>
+            <ion-card-content>
+              Test
+            </ion-card-content>
+          </ion-card>
+        </ion-slide>
+      </ion-slides>
+    </bloodstock-item-section>
+  </ion-list>
+  <!---->
+
+
+  <ion-list>
+    <bloodstock-item-section [labelTpl]="hotListingsLabelTpl">
+      <bloodstock-listing-item-skeleton></bloodstock-listing-item-skeleton>
+    </bloodstock-item-section>
+  </ion-list>
+  <ion-list class="mt-3">
+    <bloodstock-item-section [labelTpl]="closingSoonLabelTpl">
+      <bloodstock-listing-item-skeleton></bloodstock-listing-item-skeleton>
+    </bloodstock-item-section>
+  </ion-list>
+  <ion-list class="mt-3">
+    <bloodstock-item-section label="Buy Now" subHeading="Fixed Sales" btnLabel="View Listings" (btnClick)="navigate('/browse/listings')">
+      <bloodstock-listing-item-skeleton></bloodstock-listing-item-skeleton>
+    </bloodstock-item-section>
+  </ion-list>
+
+
+  <!---->
+  <ion-list class="bs-small-list">
+    <ion-list-header class="min-h-0" lines="inset" color="light">
+      <ion-label class="mt-2 mb-1.5 text-[15px] h-7 flex items-center gap-1">
+        <svg class="inline-block fill-[var(--ion-color-secondary)] mt-[1px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="11" height="11">
+          <path fill-rule="evenodd" d="M1.5 1.75a.75.75 0 00-1.5 0v12.5c0 .414.336.75.75.75h14.5a.75.75 0 000-1.5H1.5V1.75zm14.28 2.53a.75.75 0 00-1.06-1.06L10 7.94 7.53 5.47a.75.75 0 00-1.06 0L3.22 8.72a.75.75 0 001.06 1.06L7 7.06l2.47 2.47a.75.75 0 001.06 0l5.25-5.25z"></path>
+        </svg>
+        Trending Tags <span class="font-medium" style="color: var(--ion-color-medium);">(Top 5)</span>
+      </ion-label>
+      <ion-button class="mt-[7px] mb-1.5 text-[15px] h-7" color="secondary">
+        View Trending...
       </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
+    </ion-list-header>
+    <ion-item class="text-[15px]" button color="light">
+      <ion-label color="secondary">Spritzy</ion-label>
+      <ion-note slot="end"> 99+ </ion-note>
+    </ion-item>
+    <ion-item class="text-[15px]" button color="light">
+      <ion-label color="secondary">De rou Sablon</ion-label>
+      <ion-note slot="end"> 99+ </ion-note>
+    </ion-item>
+    <ion-item class="text-[15px]" button color="light">
+      <ion-label color="secondary">Bak17</ion-label>
+      <ion-note slot="end"> 99+ </ion-note>
+    </ion-item>
+    <ion-item class="text-[15px]" button color="light">
+      <ion-label color="secondary">Sun City Winner</ion-label>
+      <ion-note slot="end"> 99+ </ion-note>
+    </ion-item>
+    <ion-item class="text-[15px]" button lines="full" color="light">
+      <ion-label color="secondary">Golden Carrellie</ion-label>
+      <ion-note slot="end"> 99+ </ion-note>
+    </ion-item>
+  </ion-list>
+  <!---->
 
-<ion-content fullscreen="true">
-  <ion-modal trigger="open-filter">
-    <ng-template>
-      <ion-header>
-        <ion-toolbar>
-          <ion-buttons slot="start">
-            <ion-button color="secondary" (click)="cancel()">Cancel</ion-button>
-          </ion-buttons>
-          <ion-title>Filter</ion-title>
-          <ion-buttons slot="end">
-            <ion-button strong color="secondary">Confirm</ion-button>
-          </ion-buttons>
-        </ion-toolbar>
-      </ion-header>
-      <ion-content class="ion-padding">
-        <ion-item>
-        </ion-item>
-      </ion-content>
-    </ng-template>
-  </ion-modal>
+
+  <ion-list class="mt-3">
+    <bloodstock-item-section label="New Articles" btnLabel="View Articles" (btnClick)="navigate('/browse/articles')">
+      <bloodstock-listing-item-skeleton></bloodstock-listing-item-skeleton>
+    </bloodstock-item-section>
+  </ion-list>
 </ion-content>
--->
+
+<ng-template #hotListingsLabelTpl="">
+  <ion-label class="mt-0 mb-0 text-[17px] h-7 items-center flex gap-[1px]">
+    <svg class="inline-block fill-[var(--ion-color-tertiary)]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+      <path fill-rule="evenodd" d="M7.998 14.5c2.832 0 5-1.98 5-4.5 0-1.463-.68-2.19-1.879-3.383l-.036-.037c-1.013-1.008-2.3-2.29-2.834-4.434-.322.256-.63.579-.864.953-.432.696-.621 1.58-.046 2.73.473.947.67 2.284-.278 3.232-.61.61-1.545.84-2.403.633a2.788 2.788 0 01-1.436-.874A3.21 3.21 0 003 10c0 2.53 2.164 4.5 4.998 4.5zM9.533.753C9.496.34 9.16.009 8.77.146 7.035.75 4.34 3.187 5.997 6.5c.344.689.285 1.218.003 1.5-.419.419-1.54.487-2.04-.832-.173-.454-.659-.762-1.035-.454C2.036 7.44 1.5 8.702 1.5 10c0 3.512 2.998 6 6.498 6s6.5-2.5 6.5-6c0-2.137-1.128-3.26-2.312-4.438-1.19-1.184-2.436-2.425-2.653-4.81z"></path>
+    </svg>
+    Hot Listings
+  </ion-label>
+  <ion-button class="mt-0 mb-0 h-7" color="secondary" routerLink="/browse/listings/hot">
+    View&nbsp;
+    <svg class="inline-block fill-[var(--ion-color-secondary)] -mt-[1px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="15" height="15">
+      <path fill-rule="evenodd" d="M7.998 14.5c2.832 0 5-1.98 5-4.5 0-1.463-.68-2.19-1.879-3.383l-.036-.037c-1.013-1.008-2.3-2.29-2.834-4.434-.322.256-.63.579-.864.953-.432.696-.621 1.58-.046 2.73.473.947.67 2.284-.278 3.232-.61.61-1.545.84-2.403.633a2.788 2.788 0 01-1.436-.874A3.21 3.21 0 003 10c0 2.53 2.164 4.5 4.998 4.5zM9.533.753C9.496.34 9.16.009 8.77.146 7.035.75 4.34 3.187 5.997 6.5c.344.689.285 1.218.003 1.5-.419.419-1.54.487-2.04-.832-.173-.454-.659-.762-1.035-.454C2.036 7.44 1.5 8.702 1.5 10c0 3.512 2.998 6 6.498 6s6.5-2.5 6.5-6c0-2.137-1.128-3.26-2.312-4.438-1.19-1.184-2.436-2.425-2.653-4.81z"></path>
+    </svg>
+    Hot...
+  </ion-button>
+</ng-template>
+<ng-template #closingSoonLabelTpl="">
+  <ion-label class="mt-0 mb-0 text-[17px] h-7 flex items-center gap-1">
+    <svg class="inline-block fill-[var(--ion-color-secondary)]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="13" height="13">
+      <path fill-rule="evenodd" d="M1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0zM8 0a8 8 0 100 16A8 8 0 008 0zm.5 4.75a.75.75 0 00-1.5 0v3.5a.75.75 0 00.471.696l2.5 1a.75.75 0 00.557-1.392L8.5 7.742V4.75z"></path>
+    </svg>
+    Closing Soon<span class="font-medium" style="color: var(--ion-color-medium);">• Auctions</span>
+  </ion-label>
+  <ion-button class="mt-0 mb-0 h-7" routerLink="/browse/listings" color="secondary">View Listings</ion-button>
+</ng-template>

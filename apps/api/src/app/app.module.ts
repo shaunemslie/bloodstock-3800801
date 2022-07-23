@@ -1,6 +1,5 @@
 import { Module } from '@nestjs/common';
-import { FeedModule } from '@bloodstock/api/user/feature/feed';
-
+import { FeedModule } from '@bloodstock/api/users/feature/feed';
 
 @Module({
   imports: [FeedModule],

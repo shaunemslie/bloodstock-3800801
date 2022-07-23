@@ -7,12 +7,12 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    component: HomePageComponent
-  }
+    component: HomePageComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class HomeRouting {}

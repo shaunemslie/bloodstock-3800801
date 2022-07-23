@@ -1,39 +1,45 @@
+@import '~@ionic/angular/css/core.css';
+
+@import '~@ionic/angular/css/normalize.css';
+@import '~@ionic/angular/css/structure.css';
+@import '~@ionic/angular/css/typography.css';
+@import '~@ionic/angular/css/display.css';
+
+@import '~@ionic/angular/css/padding.css';
+
 @import '~viewerjs/dist/viewer.css';
 
-@import "~@ionic/angular/css/core.css";
-
-@import "~@ionic/angular/css/normalize.css";
-@import "~@ionic/angular/css/structure.css";
-@import "~@ionic/angular/css/typography.css";
-@import "~@ionic/angular/css/display.css";
-
-@import "~@ionic/angular/css/padding.css";
-@import "~@ionic/angular/css/float-elements.css";
-@import "~@ionic/angular/css/text-alignment.css";
-@import "~@ionic/angular/css/text-transformation.css";
-@import "~@ionic/angular/css/flex-utils.css";
-
-// CLASSES
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 .bs-border-b {
-  border-bottom: .55px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 0.55px solid rgba(0, 0, 0, 0.2);
+}
+
+.bs-border-t {
+  border-top: 0.55px solid rgba(0, 0, 0, 0.2);
+}
+
+.bs-border {
+  border: 0.55px solid rgba(0, 0, 0, 0.2);
+}
+
+.bs-small-list {
+  ion-item {
+    --min-height: 38px;
+  }
 }
 
 // CUS
 
-ion-toolbar {
-  ion-searchbar {
-    border-radius: 15px;
-    height: 30px !important;
-    padding-top: 5.5px !important;
-    padding-bottom: 5.5px !important;
-    padding-inline: 0 !important;
-    max-width: calc(100% - 12px);
-    margin-left: 6px;
-    ion-icon {
-      width: 18px !important;
-      padding-left: 2px;
-    }
+ion-title {
+  font-size: 1.625rem;
+}
+
+ion-header[collapse="fade"] {
+  ion-title {
+    font-size: 17px;
   }
 }
 
@@ -43,21 +49,134 @@ ion-toolbar {
   }
 }
 
+ion-list-header {
+  ion-button {
+    font-weight: 500 !important;
+  }
+}
+
+ion-tabs {
+  ion-router-outlet {
+    > * {
+      &::after {
+        content: '';
+        height: 3rem;
+      }
+    }
+  }
+  ion-tab-bar {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+}
+
 // MEDIA
 
 @media (display-mode: standalone) {
-  ion-tab-bar {
-    padding-top: 2px;
-    padding-bottom: 28px;
+  :root {
+    --ion-safe-area-top: 2.75rem;
+    --ion-safe-area-bottom: 2rem;
   }
+
+  ion-tabs {
+    ion-router-outlet {
+      > * {
+        &::after {
+          height: 5.235rem;
+        }
+      }
+    }
+    ion-tab-bar {
+      padding-top: 0.11rem;
+    }
+  }
+}
+
+.md.button {
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+ion-list-header {
+  font-weight: 700;
 }
 
 // DEEP
 
-.infinite-loading {
-  margin-top: 32px;
-}
-
 .spinner-crescent {
   color: var(--ion-color-primary);
+  margin-top: 30px;
+}
+
+.viewer-backdrop {
+  background: var(--ion-color-light);
+}
+
+ion-note.md {
+  font-size: 14px;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+ion-header[style='--opacity-scale: 0;'],
+ion-header[style='--opacity-scale:0;'] {
+  ion-back-button {
+    background: rgba(var(--ion-color-medium-rgb), 0.08);
+  }
+}
+
+ion-input {
+  background: rgba(var(--ion-color-medium-rgb), 0.12) !important;
+  border-radius: 10px;
+  border: 1px solid rgba(var(--ion-color-medium-rgb), 0.2);
+  input {
+    height: 40px;
+    padding-left: 10px !important;
+  }
+}
+
+ion-back-button {
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  margin-left: 2px;
+  font-size: 10px;
+  transition: 160ms ease-in;
+}
+
+.viewer-canvas {
+  img {
+    scale: 0.86 !important;
+    margin-top: 68px !important;
+  }
+}
+
+.viewer-prev {
+  margin-right: 140px;
+}
+
+.viewer-toolbar {
+  margin-bottom: 24px;
+  margin-top: 8px;
+  scale: 1.24;
+}
+
+.viewer-button.viewer-close {
+  background: none;
+  position: fixed;
+  top: 26px;
+  right: -8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &::before {
+    display: none;
+  }
+  &::after {
+    content: '×';
+    font-size: 28px;
+  }
 }

@@ -5,6 +5,7 @@ import { IonicRouteStrategy } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { NgxsModule } from '@ngxs/store';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthModule } from '@bloodstock/mobile/shared/data-access/auth';
 
 @NgModule({
   imports: [
@@ -12,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
     MobileShellRouting,
     NgxsModule.forRoot(),
     HttpClientModule,
+    AuthModule
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
 })

@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/mobile/auth/ui/login-form",
+  "sourceRoot": "libs/mobile/auth/ui/login-form/src",
+  "prefix": "bloodstock",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/mobile/auth/ui/login-form"],
+      "options": {
+        "jestConfig": "libs/mobile/auth/ui/login-form/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/mobile/auth/ui/login-form/src/**/*.ts",
+          "libs/mobile/auth/ui/login-form/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

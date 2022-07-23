@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/mobile/auth/feature/shell",
+  "sourceRoot": "libs/mobile/auth/feature/shell/src",
+  "prefix": "bloodstock",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/mobile/auth/feature/shell"],
+      "options": {
+        "jestConfig": "libs/mobile/auth/feature/shell/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/mobile/auth/feature/shell/src/**/*.ts",
+          "libs/mobile/auth/feature/shell/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

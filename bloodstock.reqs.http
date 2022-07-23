@@ -1,0 +1,17 @@
+@hostname = 192.168.1.99
+@port = 3333
+@host = http://{{hostname}}:{{port}}/api
+
+
+
+### @api User Feed
+# @prompt id
+GET {{host}}/users/feed?id={{id}} HTTP/1.1
+
+
+### @api
+
+
+
+
+### @api

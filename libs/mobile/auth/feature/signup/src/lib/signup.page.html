@@ -1,0 +1,26 @@
+<ion-header [translucent]="true" collapse="fade">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="secondary" defaultHref="auth/login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Create an Account
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" [forceOverscroll]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">
+        Create an Account
+      </ion-title>
+    </ion-toolbar>
+    <ion-toolbar class="flex items-center h-7 -mt-0.5">
+      <ion-title color="medium" size="large" class="h-10 text-[15px] leading-6 font-normal">
+        Fill out the form below to register to Bloodstock.
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <bloodstock-signup-form></bloodstock-signup-form>
+</ion-content>

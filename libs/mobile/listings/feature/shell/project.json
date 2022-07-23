@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/mobile/listings/feature/shell",
+  "sourceRoot": "libs/mobile/listings/feature/shell/src",
+  "prefix": "bloodstock",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/mobile/listings/feature/shell"],
+      "options": {
+        "jestConfig": "libs/mobile/listings/feature/shell/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/mobile/listings/feature/shell/src/**/*.ts",
+          "libs/mobile/listings/feature/shell/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

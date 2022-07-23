@@ -3,14 +3,26 @@
   "version": 2,
   "projects": {
     "api": "apps/api",
-    "api-user-feature-feed": "libs/api/user/feature/feed",
+    "api-users-feature-feed": "libs/api/users/feature/feed",
     "mobile": "apps/mobile",
+    "mobile-auth-feature-login": "libs/mobile/auth/feature/login",
+    "mobile-auth-feature-shell": "libs/mobile/auth/feature/shell",
+    "mobile-auth-feature-signup": "libs/mobile/auth/feature/signup",
+    "mobile-auth-ui-login-form": "libs/mobile/auth/ui/login-form",
+    "mobile-auth-ui-signup-form": "libs/mobile/auth/ui/signup-form",
     "mobile-browse-feature-browse": "libs/mobile/browse/feature-browse",
     "mobile-e2e": "apps/mobile-e2e",
     "mobile-feature-shell": "libs/mobile/feature-shell",
     "mobile-home-feature-home": "libs/mobile/home/feature-home",
     "mobile-inbox-feature-inbox": "libs/mobile/inbox/feature-inbox",
+    "mobile-listings-feature-hot": "libs/mobile/listings/feature/hot",
+    "mobile-listings-feature-listings": "libs/mobile/listings/feature/listings",
+    "mobile-listings-feature-shell": "libs/mobile/listings/feature/shell",
+    "mobile-shared-data-access-auth": "libs/mobile/shared/data-access/auth",
+    "mobile-shared-ui-item-section": "libs/mobile/shared/ui/item-section",
     "mobile-shared-ui-listing-item": "libs/mobile/shared/ui/listing-item",
+    "mobile-shared-utils-auth": "libs/mobile/shared/utils/auth",
+    "mobile-shared-utils-meta": "libs/mobile/shared/utils/meta",
     "shared-interfaces": "libs/shared/interfaces"
   }
 }

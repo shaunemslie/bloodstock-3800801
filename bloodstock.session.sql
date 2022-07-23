@@ -1,5 +1,5 @@
 --@block
-
+SELECT * FROM users;
 
 
 

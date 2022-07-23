@@ -7,20 +7,28 @@ import { IonicModule } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(),
+    IonicModule.forRoot({
+      backButtonIcon: 'arrow-back',
+      backButtonText: '',
+      refreshingIcon: 'circles',
+      refreshingSpinner: 'circles',
+      infiniteLoadingSpinner: 'crescent',
+      swipeBackEnabled: true,
+      tabButtonLayout: 'icon-top',
+    }),
     MobileShellModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
-      // Register the ServiceWorker as soon as the app is stable
-      // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000',
     }),
+    RouterModule,
   ],
   bootstrap: [AppComponent],
 })

@@ -8,8 +8,15 @@ import { NgxsModule } from '@ngxs/store';
 import { HomeState } from './+state/home.state';
 
 @NgModule({
-  imports: [CommonModule, HomeRouting, IonicModule, NgxsModule.forFeature([HomeState]), ListingItemComponentModule],
+  imports: [
+    CommonModule,
+    HomeRouting,
+    IonicModule,
+    NgxsModule.forFeature([HomeState]),
+    ListingItemComponentModule,
+  ],
   declarations: [HomePageComponent],
   exports: [HomePageComponent],
+  providers: []
 })
 export class HomeModule {}

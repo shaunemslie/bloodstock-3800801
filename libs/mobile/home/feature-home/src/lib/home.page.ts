@@ -1,37 +1,46 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnDestroy } from '@angular/core';
 import { Feed } from '@bloodstock/shared/interfaces';
 import { Select, Store } from '@ngxs/store';
-import { Observable, lastValueFrom } from 'rxjs';
+import { Observable, takeUntil, Subject } from 'rxjs';
 import { LoadFeed, InitFeed } from './+state/home.actions';
 import { HomeState } from './+state/home.state';
+import { TakeUntilDestroy } from 'ngx-decorator';
 
 @Component({
   selector: 'bloodstock-home',
   templateUrl: './home.page.html',
-  styles: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomePageComponent {
-  arr = Array(6);
+@TakeUntilDestroy
+export class HomePageComponent implements OnDestroy {
+  skeletonCount = Array(6)
+  private destroyed$!: Function;
   @Select(HomeState.listings) listings$: Observable<Feed[]> | undefined;
 
   constructor(private store: Store) {
     this.init();
   }
 
-  async loadFeed(e: any) {
-    await lastValueFrom(this.store.dispatch(new LoadFeed())).then(() => e.target.complete());
+  refresh(event: any) {
+    this.init()
+      .pipe(takeUntil(this.destroyed$()))
+      .subscribe(() => event.target.complete());
   }
 
-  async refresh(e: any) {
-    await lastValueFrom(this.init()).then(() => e.target.complete());
-  }
-
-  init(): Observable<unknown> {
-    return this.store.dispatch([new InitFeed()]);
+  loadFeed(event: any) {
+    this.store
+      .dispatch(new LoadFeed())
+      .pipe(takeUntil(this.destroyed$()))
+      .subscribe(() => event.target.complete());
   }
 
   trackListings(index: number, listing: Feed): string {
     return listing.id;
   }
+
+  private init(): Observable<unknown> {
+    return this.store.dispatch(new InitFeed());
+  }
+
+  ngOnDestroy() {}
 }

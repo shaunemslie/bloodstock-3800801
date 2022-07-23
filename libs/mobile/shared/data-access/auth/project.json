@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/mobile/shared/data-access/auth",
+  "sourceRoot": "libs/mobile/shared/data-access/auth/src",
+  "prefix": "bloodstock",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/mobile/shared/data-access/auth"],
+      "options": {
+        "jestConfig": "libs/mobile/shared/data-access/auth/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/mobile/shared/data-access/auth/src/**/*.ts",
+          "libs/mobile/shared/data-access/auth/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

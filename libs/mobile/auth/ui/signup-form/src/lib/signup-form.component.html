@@ -1,0 +1,39 @@
+<div class="flex items-center w-full h-2/3">
+  <form [formGroup]="signupForm" (ngSubmit)="handleSubmit()" class="w-[98%]">
+    <ion-list lines="none">
+      <ion-item>
+        <ion-label class="ion-no-margin" position="stacked">Pick a Username</ion-label>
+        <ion-input clearInput formControlName="username" placeholder="john_doe1"></ion-input>
+        <ion-note *ngIf="(signupForm.get('username')?.dirty || this.submitted) && !signupForm.get('username')?.valid; else spacerTpl" class="text-sm mb-0.5" color="danger">
+          {{
+            signupForm.get('username')?.errors?.['required'] ? 'A username is required.' : 'Usernames should be between 6 and 25 characters.'
+          }}
+        </ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-label class="ion-no-margin" position="stacked">Email</ion-label>
+        <ion-input clearInput formControlName="email" placeholder="johndoe@gmail.com"></ion-input>
+        <ion-note *ngIf="(signupForm.get('email')?.dirty || this.submitted) && !signupForm.get('email')?.valid; else spacerTpl" class="text-sm mb-0.5" color="danger">
+          {{
+            signupForm.get('email')?.errors?.['required'] ? 'An email address is required.' : 'Invalid email address.'
+          }}
+        </ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-label class="ion-no-margin" position="stacked">Password</ion-label>
+        <ion-input clearInput formControlName="password" type="password"></ion-input>
+        <ion-note *ngIf="(signupForm.get('password')?.dirty || this.submitted) && !signupForm.get('password')?.valid; else spacerTpl" class="text-sm" color="danger">A password is required.</ion-note>
+      </ion-item>
+    </ion-list>
+
+    <ion-footer class="fixed bottom-0 ion-no-border">
+      <ion-toolbar color="undefined" class="ion-no-padding">
+        <ion-button type="submit" color="secondary" class="w-[92%] ml-[4%]" expand="block">Create Account</ion-button>
+      </ion-toolbar>
+    </ion-footer>
+  </form>
+</div>
+
+<ng-template #spacerTpl>
+  <div class="h-2"></div>
+</ng-template>

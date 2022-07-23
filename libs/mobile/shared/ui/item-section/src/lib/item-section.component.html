@@ -1,0 +1,14 @@
+<ion-list-header class="min-h-0 mt-0 mb-0">
+  <ng-container *ngIf="labelTpl; else defaultTpl">
+    <ng-container *ngTemplateOutlet="labelTpl"></ng-container>
+  </ng-container>
+</ion-list-header>
+
+<ng-content></ng-content>
+
+<ng-template #defaultTpl="">
+  <ion-label class="mt-0 mb-0 text-[17px] h-7 items-center flex gap-1">
+    {{label}}<span class="font-medium" *ngIf="subHeading" style="color: var(--ion-color-medium);">• {{subHeading}}</span>
+  </ion-label>
+  <ion-button class="mt-0 mb-0 h-7" (click)="onClicked()" *ngIf="btnLabel" color="secondary">{{btnLabel}}</ion-button>
+</ng-template>

@@ -1,6 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "strictPropertyInitialization": false,
     "rootDir": ".",
     "sourceMap": true,
     "declaration": false,
@@ -15,8 +16,23 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@bloodstock/api/user/feature/feed": [
-        "libs/api/user/feature/feed/src/index.ts"
+      "@bloodstock/api/users/feature/feed": [
+        "libs/api/users/feature/feed/src/index.ts"
+      ],
+      "@bloodstock/mobile/auth/feature/login": [
+        "libs/mobile/auth/feature/login/src/index.ts"
+      ],
+      "@bloodstock/mobile/auth/feature/shell": [
+        "libs/mobile/auth/feature/shell/src/index.ts"
+      ],
+      "@bloodstock/mobile/auth/feature/signup": [
+        "libs/mobile/auth/feature/signup/src/index.ts"
+      ],
+      "@bloodstock/mobile/auth/ui/login-form": [
+        "libs/mobile/auth/ui/login-form/src/index.ts"
+      ],
+      "@bloodstock/mobile/auth/ui/signup-form": [
+        "libs/mobile/auth/ui/signup-form/src/index.ts"
       ],
       "@bloodstock/mobile/browse/feature-browse": [
         "libs/mobile/browse/feature-browse/src/index.ts"
@@ -30,8 +46,29 @@
       "@bloodstock/mobile/inbox/feature-inbox": [
         "libs/mobile/inbox/feature-inbox/src/index.ts"
       ],
+      "@bloodstock/mobile/listings/feature/hot": [
+        "libs/mobile/listings/feature/hot/src/index.ts"
+      ],
+      "@bloodstock/mobile/listings/feature/listings": [
+        "libs/mobile/listings/feature/listings/src/index.ts"
+      ],
+      "@bloodstock/mobile/listings/feature/shell": [
+        "libs/mobile/listings/feature/shell/src/index.ts"
+      ],
+      "@bloodstock/mobile/shared/data-access/auth": [
+        "libs/mobile/shared/data-access/auth/src/index.ts"
+      ],
+      "@bloodstock/mobile/shared/ui/item-section": [
+        "libs/mobile/shared/ui/item-section/src/index.ts"
+      ],
       "@bloodstock/mobile/shared/ui/listing-item": [
         "libs/mobile/shared/ui/listing-item/src/index.ts"
+      ],
+      "@bloodstock/mobile/shared/utils/auth": [
+        "libs/mobile/shared/utils/auth/src/index.ts"
+      ],
+      "@bloodstock/mobile/shared/utils/meta": [
+        "libs/mobile/shared/utils/meta/src/index.ts"
       ],
       "@bloodstock/shared/interfaces": ["libs/shared/interfaces/src/index.ts"]
     }
