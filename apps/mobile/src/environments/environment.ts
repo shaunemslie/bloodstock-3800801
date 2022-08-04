@@ -4,6 +4,12 @@
 
 export const environment = {
   production: false,
+  useEmulators: true,
+  firebase: {
+    apiKey: 'AIzaSyDzm4P7cunsJWbw6V7g6QHgK7HZptKTtzM',
+    authDomain: 'bloodstock-353417.firebaseapp.com',
+    projectId: 'bloodstock-353417',
+  },
 };
 
 /*

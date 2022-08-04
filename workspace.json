@@ -3,7 +3,8 @@
   "version": 2,
   "projects": {
     "api": "apps/api",
-    "api-users-feature-feed": "libs/api/users/feature/feed",
+    "api-user-feature-feed": "libs/api/user/feature/feed",
+    "api-user-feature-user": "libs/api/user/feature/user",
     "mobile": "apps/mobile",
     "mobile-auth-feature-login": "libs/mobile/auth/feature/login",
     "mobile-auth-feature-shell": "libs/mobile/auth/feature/shell",
@@ -18,6 +19,7 @@
     "mobile-listings-feature-hot": "libs/mobile/listings/feature/hot",
     "mobile-listings-feature-listings": "libs/mobile/listings/feature/listings",
     "mobile-listings-feature-shell": "libs/mobile/listings/feature/shell",
+    "mobile-profile-feature-profile": "libs/mobile/profile/feature/profile",
     "mobile-shared-data-access-auth": "libs/mobile/shared/data-access/auth",
     "mobile-shared-ui-item-section": "libs/mobile/shared/ui/item-section",
     "mobile-shared-ui-listing-item": "libs/mobile/shared/ui/listing-item",

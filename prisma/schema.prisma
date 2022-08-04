@@ -11,10 +11,7 @@ datasource db {
 
 model User {
   id         String  @id @default(cuid()) @db.VarChar(25)
-  email      String  @unique @db.VarChar(64)
   username   String  @unique @db.VarChar(32)
-  isVerified Boolean @map("is_verified")
-  photoUrl   String? @map("photo_url") @db.VarChar(255)
 
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
@@ -24,6 +21,8 @@ model User {
   following Follow[]
   bids      Bid[]
   purchases Listing[]
+
+  fireId  String  @map("_fire_id") @db.VarChar(36)
 
   @@map("users")
 }

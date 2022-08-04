@@ -1,38 +1,37 @@
 <ion-app>
   <ion-router-outlet></ion-router-outlet>
   <ng-container *ngIf="this.currentRoute && !this.currentRoute.includes('/auth')">
-    <ng-container *ngIf="isAuthenticated$ | async; then tabsTpl; else signInTpl;"></ng-container>
+    <ng-container *ngIf="user$ | async as user; else signInTpl">
+      <ion-tabs>
+        <ion-tab-bar [translucent]="true">
+          <ion-tab-button tab="home">
+            <ion-icon [src]="currentRoute.includes('/home') ? 'assets/icon/home.svg' : 'assets/icon/home-outline.svg'" style="height: 27px; width: 27px; margin: 0;"></ion-icon>
+            <ion-label>Home</ion-label>
+          </ion-tab-button>
+          <ion-tab-button tab="browse">
+            <ion-icon [name]="currentRoute.includes('/browse') || currentRoute === '/' ? 'grid' : 'grid-outline'" style="font-size: 24px; margin: 1px 0 2px 0;"></ion-icon>
+            <ion-label>Browse</ion-label>
+          </ion-tab-button>
+          <ion-tab-button tab="inbox">
+            <ion-icon [name]="currentRoute.includes('/inbox') ? 'notifications' : 'notifications-outline'" style="font-size: 25px; margin: 1px 0 1px 0;"></ion-icon>
+            <ion-label>Notifications</ion-label>
+          </ion-tab-button>
+          <ion-tab-button tab="profile">
+            <ion-icon [src]="currentRoute.includes('/profile') ? 'assets/icon/person.svg' : 'assets/icon/person-outline.svg'" style="height: 25px; width: 25px; margin: 1px 0 1px 0;"></ion-icon>
+            <ion-label>{{user?.username}}</ion-label>
+          </ion-tab-button>
+        </ion-tab-bar>
+      </ion-tabs>
+    </ng-container>
   </ng-container>
 </ion-app>
 
-<ng-template #tabsTpl>
-  <ion-tabs>
-    <ion-tab-bar [translucent]="true">
-      <ion-tab-button tab="home">
-        <ion-icon [src]="currentRoute.includes('/home') ? 'assets/icon/home.svg' : 'assets/icon/home-outline.svg'" style="height: 27px; width: 27px; margin: 0;"></ion-icon>
-        <ion-label>Home</ion-label>
-      </ion-tab-button>
-      <ion-tab-button tab="browse">
-        <ion-icon [name]="currentRoute.includes('/browse') || currentRoute === '/' ? 'grid' : 'grid-outline'" style="font-size: 24px; margin: 1px 0 2px 0;"></ion-icon>
-        <ion-label>Browse</ion-label>
-      </ion-tab-button>
-      <ion-tab-button tab="inbox">
-        <ion-icon [name]="currentRoute.includes('/inbox') ? 'notifications' : 'notifications-outline'" style="font-size: 25px; margin: 1px 0 1px 0;"></ion-icon>
-        <ion-label>Notifications</ion-label>
-      </ion-tab-button>
-      <ion-tab-button tab="profile">
-        <ion-icon [src]="currentRoute.includes('/profile') ? 'assets/icon/person.svg' : 'assets/icon/person-outline.svg'" style="height: 25px; width: 25px; margin: 1px 0 1px 0;"></ion-icon>
-        <ion-label>shaun-ems</ion-label>
-      </ion-tab-button>
-    </ion-tab-bar>
-  </ion-tabs>
-</ng-template>
-<ng-template #signInTpl>
-  <ion-footer [translucent]="true" class="fixed bottom-0 ion-no-border">
-    <ion-toolbar>
-      <ion-button routerLink="/auth/login" color="undefined" expand="block">
-        <ion-label color="secondary" class="text-[17px]">Sign in to Bloodstock</ion-label>
-        <ion-icon color="secondary" class="ml-1" name="log-in-outline"></ion-icon>
+<ng-template #signInTpl="">
+  <ion-footer class="fixed bottom-0 ion-no-border" [translucent]="true">
+    <ion-toolbar color="undefined">
+      <ion-button routerLink="/auth/login" color="secondary" expand="block">
+        Sign in to Bloodstock
+        <ion-icon slot="end" name="log-in-outline"></ion-icon>
       </ion-button>
     </ion-toolbar>
   </ion-footer>

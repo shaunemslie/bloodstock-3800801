@@ -6,7 +6,6 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 @Component({
   selector: 'bloodstock-signup-form',
   templateUrl: './signup-form.component.html',
-  styles: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SignupFormComponent {
@@ -29,7 +28,7 @@ export class SignupFormComponent {
 
   handleSubmit() {
     this.submitted = true;
-    console.log(this.signupForm);
+
     if (this.signupForm.valid) this.formSubmit.emit(this.signupForm);
   }
 }

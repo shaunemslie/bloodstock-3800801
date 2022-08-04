@@ -14,16 +14,13 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'bloodstock-login-form',
   templateUrl: './login-form.component.html',
-  styles: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoginFormComponent {
-  submitted = false;
   loginForm!: FormGroup;
   @Output() formSubmit = new EventEmitter<FormGroup>();
 
@@ -34,13 +31,12 @@ export class LoginFormComponent {
         password: ['', [Validators.required]],
       },
       {
-        updateOn: 'blur',
+        updateOn: 'submit',
       }
     );
   }
 
   handleSubmit() {
-    this.submitted = true;
     if (this.loginForm.valid) this.formSubmit.emit(this.loginForm);
   }
 }

@@ -77,7 +77,7 @@
       "defaultConfiguration": "development",
       "options": {
         "proxyConfig": "apps/mobile/proxy.conf.json",
-        "host": "192.168.1.99"
+        "host": "192.168.0.55"
       }
     },
     "extract-i18n": {

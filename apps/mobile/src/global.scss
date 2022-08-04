@@ -13,6 +13,13 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
+
+.firebase-emulator-warning {
+  display: none;
+}
+
 .bs-border-b {
   border-bottom: 0.55px solid rgba(0, 0, 0, 0.2);
 }
@@ -33,6 +40,14 @@
 
 // CUS
 
+ion-footer {
+  ion-toolbar {
+    ion-button {
+      margin-bottom: 18px
+    }
+  }
+}
+
 ion-title {
   font-size: 1.625rem;
 }
@@ -43,15 +58,20 @@ ion-header[collapse="fade"] {
   }
 }
 
-.buttons-last-slot {
+.buttons-first-slot {
   > * {
     font-weight: 500 !important;
+  }
+}
+.buttons-last-slot {
+  > * {
+    font-weight: 600 !important;
   }
 }
 
 ion-list-header {
   ion-button {
-    font-weight: 500 !important;
+    font-weight: 600 !important;
   }
 }
 
@@ -129,12 +149,12 @@ ion-header[style='--opacity-scale:0;'] {
 }
 
 ion-input {
-  background: rgba(var(--ion-color-medium-rgb), 0.12) !important;
+  background: rgba(var(--ion-color-medium-rgb), 0.08) !important;
   border-radius: 10px;
-  border: 1px solid rgba(var(--ion-color-medium-rgb), 0.2);
+  border: 1px solid rgba(var(--ion-color-medium-rgb), 0.16);
   input {
-    height: 40px;
-    padding-left: 10px !important;
+    height: 39px;
+    padding-left: 12px !important;
   }
 }
 

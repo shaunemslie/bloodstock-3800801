@@ -1,28 +1,40 @@
 <ion-header class="ion-no-border" collapse="fade" [translucent]="true">
   <ion-toolbar class="ion-no-padding">
-    <ion-icon color="primary" style="font-size: 44px;" class="flex items-center w-full" src="assets/icon/logo.svg"></ion-icon>
+    <ion-icon
+      class="flex items-center w-full"
+      src="assets/icon/logo.svg"
+      style="font-size: 44px; color: var(--ion-color-primary-shade)"
+    ></ion-icon>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" [forceOverscroll]="true">
-  <ng-container *ngIf="listings$ | async as listings; else loadingTpl">
-    <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
-      <ion-refresher-content></ion-refresher-content>
-    </ion-refresher>
-    <ng-container *ngIf="listings.length; else emptyTpl">
-      <ion-list>
-        <bloodstock-listing-item *ngFor="let listing of listings; trackBy: trackListings" [data]="listing"></bloodstock-listing-item>
-      </ion-list>
-      <ion-infinite-scroll (ionInfinite)="loadFeed($event)">
-        <ion-infinite-scroll-content></ion-infinite-scroll-content>
-      </ion-infinite-scroll>
+  <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-list>
+    <ion-list-header class="min-h-0" lines="inset">
+      <ion-label class="mt-1.5 mb-2.5 text-[16px] leading-[18px]"
+        >Recent Activity From the Lofts<br />You're Following</ion-label
+      >
+    </ion-list-header>
+    <ng-container *ngIf="listings$ | async as listings; else loadingTpl">
+      <ng-container *ngIf="listings.length; else emptyTpl">
+        <bloodstock-listing-item
+          *ngFor="let listing of listings; trackBy: trackListings"
+          [data]="listing"
+        ></bloodstock-listing-item>
+        <ion-infinite-scroll (ionInfinite)="loadFeed($event)">
+          <ion-infinite-scroll-content></ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+      </ng-container>
     </ng-container>
-  </ng-container>
+  </ion-list>
 </ion-content>
 
 <ng-template #loadingTpl="">
-  <bloodstock-listing-item-skeleton *ngFor="let i of skeletonCount;"></bloodstock-listing-item-skeleton>
+  <bloodstock-listing-item-skeleton
+    *ngFor="let i of skeletonCount;"
+  ></bloodstock-listing-item-skeleton>
 </ng-template>
-<ng-template #emptyTpl="">
-
-</ng-template>
+<ng-template #emptyTpl=""> </ng-template>

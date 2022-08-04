@@ -16,8 +16,11 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@bloodstock/api/users/feature/feed": [
-        "libs/api/users/feature/feed/src/index.ts"
+      "@bloodstock/api/user/feature/feed": [
+        "libs/api/user/feature/feed/src/index.ts"
+      ],
+      "@bloodstock/api/user/feature/user": [
+        "libs/api/user/feature/user/src/index.ts"
       ],
       "@bloodstock/mobile/auth/feature/login": [
         "libs/mobile/auth/feature/login/src/index.ts"
@@ -54,6 +57,9 @@
       ],
       "@bloodstock/mobile/listings/feature/shell": [
         "libs/mobile/listings/feature/shell/src/index.ts"
+      ],
+      "@bloodstock/mobile/profile/feature/profile": [
+        "libs/mobile/profile/feature/profile/src/index.ts"
       ],
       "@bloodstock/mobile/shared/data-access/auth": [
         "libs/mobile/shared/data-access/auth/src/index.ts"

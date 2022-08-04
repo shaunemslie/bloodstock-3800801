@@ -1,0 +1,116 @@
+<ng-container *ngIf="user$ | async as user">
+  <ion-header [translucent]="true" collapse="fade">
+    <ion-toolbar>
+      <ion-title> {{user.username}} </ion-title>
+      <ion-buttons slot="end">
+        <ion-button color="secondary">Edit</ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content [fullscreen]="true" [forceOverscroll]="true">
+    <ion-header collapse="condense">
+      <ion-toolbar class="pb-2">
+        <ion-item class="ml-2.5 ion-no-padding" lines="none">
+          <ion-avatar
+            class="w-12 h-12 ion-no-margin"
+            style="background-color: var(--ion-color-light)"
+            slot="start"
+          >
+            <img
+              [src]="'https://gravatar.com/avatar/'+user.id+'?d=retro&f=y'"
+            />
+          </ion-avatar>
+          <ion-label class="flex items-center ml-3 -mt-0.5 ion-no-margin">
+            <span class="font-semibold text-[19px]">{{user.username}}</span>
+            <span
+              class="block text-[15px]"
+              style="color: var(--ion-color-medium)"
+              >{{user.email}}</span
+            >
+          </ion-label>
+        </ion-item>
+      </ion-toolbar>
+    </ion-header>
+    <ion-list>
+      <ion-item-divider class="min-h-[18px]"></ion-item-divider>
+      <ion-item lines="none" button>
+        <ion-label class="font-bold">Loft Manager</ion-label>
+        <ion-note>Bloodstock Lofts</ion-note>
+      </ion-item>
+      <ion-item-divider class="min-h-[18px]"></ion-item-divider>
+      <ion-list-header class="mt-0">
+        <ion-label class="text-[17px] mt-0"> Settings </ion-label>
+      </ion-list-header>
+      <ion-item lines="none" button="">
+        <ion-icon
+          name="notifications-outline"
+          slot="start"
+          class="mr-2 ion-nomargin text-[19px]"
+        ></ion-icon>
+        <ion-label>Notifications</ion-label>
+      </ion-item>
+      <ion-item-divider class="min-h-[6px]"></ion-item-divider>
+      <ion-item button="">
+        <ion-icon
+          name="lock-closed-outline"
+          slot="start"
+          class="mr-2 ion-nomargin text-[19px]"
+        ></ion-icon>
+        <ion-label>Privacy</ion-label>
+      </ion-item>
+      <ion-item button="">
+        <ion-icon
+          name="shield-checkmark-outline"
+          slot="start"
+          class="mr-2 ion-nomargin text-[19px]"
+        ></ion-icon>
+        <ion-label>Security</ion-label>
+      </ion-item>
+      <ion-item lines="none" button="">
+        <ion-icon
+          name="person-circle-outline"
+          slot="start"
+          class="mr-2 ion-nomargin text-[19px]"
+        ></ion-icon>
+        <ion-label>Account</ion-label>
+      </ion-item>
+      <ion-item-divider class="min-h-[18px]"></ion-item-divider>
+      <ion-item button="">
+        <ion-icon
+          name="help-circle-outline"
+          slot="start"
+          class="mr-2 ion-nomargin text-[19px]"
+        ></ion-icon>
+        <ion-label>Help</ion-label>
+      </ion-item>
+      <ion-item lines="none" button="">
+        <ion-icon
+          name="information-circle-outline"
+          slot="start"
+          class="mr-2 ion-nomargin text-[19px]"
+        ></ion-icon>
+        <ion-label>About</ion-label>
+      </ion-item>
+      <ion-item-divider class="min-h-[6px]"></ion-item-divider>
+      <ion-item lines="none" button>
+        <ion-icon
+          name="document-outline"
+          slot="start"
+          class="mr-2 ion-nomargin text-[19px]"
+        ></ion-icon>
+        <ion-label>Terms & Conditions</ion-label>
+      </ion-item>
+      <ion-item-divider class="min-h-[18px]"></ion-item-divider>
+      <ion-item lines="full" class="font-medium" button (click)="logout()">
+        <ion-icon
+          name="log-out-outline"
+          color="secondary"
+          slot="start"
+          class="mr-2 ion-nomargin text-[19px]"
+        ></ion-icon>
+        <ion-label color="secondary">Sign out of {{user.username}}</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ng-container>

@@ -19,3 +19,15 @@
   </ion-header>
   <bloodstock-login-form (formSubmit)="login($event)"></bloodstock-login-form>
 </ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar class="h-12" color="undefined">
+    <p class="text-sm font-semibold text-center" style="color: var(--ion-color-medium);">OR</p>
+  </ion-toolbar>
+  <ion-toolbar color="undefined">
+    <ion-button (click)="googleAuth()" color="light" expand="block">
+      <ion-icon name="logo-google" slot="start" class="text-[19px]"></ion-icon>
+      Sign in with Google
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

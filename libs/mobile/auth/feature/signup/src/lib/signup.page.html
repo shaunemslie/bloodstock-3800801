@@ -16,11 +16,6 @@
         Create an Account
       </ion-title>
     </ion-toolbar>
-    <ion-toolbar class="flex items-center h-7 -mt-0.5">
-      <ion-title color="medium" size="large" class="h-10 text-[15px] leading-6 font-normal">
-        Fill out the form below to register to Bloodstock.
-      </ion-title>
-    </ion-toolbar>
   </ion-header>
-  <bloodstock-signup-form></bloodstock-signup-form>
+  <bloodstock-signup-form (formSubmit)="signup($event)"></bloodstock-signup-form>
 </ion-content>

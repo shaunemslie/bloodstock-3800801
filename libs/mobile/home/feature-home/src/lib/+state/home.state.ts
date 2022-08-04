@@ -27,30 +27,26 @@ export class HomeState {
   constructor(private homeApiService: HomeApiService) {}
 
   @Action(InitFeed)
-  initFeed(ctx: StateContext<HomeStateModel>) {
-    return this.homeApiService
-      .getFeed({ id: 'cl52l17bi0020itsek1p4nt2g' })
-      .pipe(
-        tap((listings: Feed[]) => {
-          ctx.setState({
-            listings: listings,
-          });
-        })
-      );
+  initFeed(ctx: StateContext<HomeStateModel>, action: InitFeed) {
+    return this.homeApiService.getFeed(action.payload).pipe(
+      tap((listings: Feed[]) => {
+        ctx.setState({
+          listings: listings,
+        });
+      })
+    );
   }
 
   @Action(LoadFeed)
-  loadFeed(ctx: StateContext<HomeStateModel>) {
-    return this.homeApiService
-      .getFeed({ id: 'cl52l17bi0020itsek1p4nt2g' })
-      .pipe(
-        tap((listings: Feed[]) => {
-          ctx.setState(
-            patch({
-              listings: append(listings),
-            })
-          );
-        })
-      );
+  loadFeed(ctx: StateContext<HomeStateModel>, action: LoadFeed) {
+    return this.homeApiService.getFeed(action.payload).pipe(
+      tap((listings: Feed[]) => {
+        ctx.setState(
+          patch({
+            listings: append(listings),
+          })
+        );
+      })
+    );
   }
 }

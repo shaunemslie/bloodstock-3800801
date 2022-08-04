@@ -1,27 +1,70 @@
-<div class="flex items-center w-full h-4/5">
-  <form [formGroup]="loginForm" (ngSubmit)="handleSubmit()" class="w-[98%]">
-    <ion-list lines="none">
-      <ion-item>
-        <ion-label class="ion-no-margin" position="stacked">Username or email</ion-label>
-        <ion-input clearInput formControlName="username" placeholder="john_doe1"></ion-input>
-        <ion-note *ngIf="(loginForm.get('username')?.dirty || this.submitted) && !loginForm.get('username')?.valid; else spacerTpl" class="text-sm mb-0.5" color="danger">Your username or email is required.</ion-note>
-      </ion-item>
-      <ion-item>
-        <ion-label class="ion-no-margin" position="stacked">Password</ion-label>
-        <ion-input clearInput formControlName="password" type="password"></ion-input>
-        <ion-note *ngIf="(loginForm.get('password')?.dirty || this.submitted) && !loginForm.get('password')?.valid; else spacerTpl" class="text-sm" color="danger">Your password is required.</ion-note>
-      </ion-item>
-      <ion-item>
-        <a slot="end" routerLink="/auth/signup" style="color: var(--ion-color-secondary); text-decoration: none;" class="text-[15px] mr-0 font-medium">Forgot Password</a>
-      </ion-item>
-      <ion-button type="submit" color="secondary" class="w-[93%] ml-[5%] mt-2" expand="block">Sign in</ion-button>
-      <ion-item class="mt-3.5">
-        <span class="w-full text-[15px] leading-8">Don't have a Bloodstock account?<br/><a routerLink="/auth/signup" style="color: var(--ion-color-secondary); text-decoration: none;" class="text-[17px] font-bold">Create an Account</a><br><i class="block text-[13px] font-medium -mt-1.5" style="color: var(--ion-color-medium);">- It's free for life!</i></span>
-      </ion-item>
-    </ion-list>
-  </form>
-</div>
-
-<ng-template #spacerTpl>
-  <div class="h-2"></div>
-</ng-template>
+<form class="mt-24 -ml-2" [formGroup]="loginForm" (ngSubmit)="handleSubmit()">
+  <ion-list lines="none">
+    <ion-item>
+      <ion-label position="stacked">Username or email</ion-label>
+      <ion-input
+        formControlName="username"
+        placeholder="john_doe1"
+        required
+        inputmode="email"
+        enterkeyhint="next"
+        autocomplete="email"
+      ></ion-input>
+      <ion-note
+        class="text-sm"
+        *ngIf="
+          loginForm.get('username')?.dirty && !loginForm.get('username')?.valid
+        "
+        color="danger"
+        >Your username or email address is required.</ion-note
+      >
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Password</ion-label>
+      <ion-input
+        type="password"
+        formControlName="password"
+        clearOnEdit="false"
+        required
+        enterkeyhint="go"
+        autocomplete="current-password"
+      ></ion-input>
+      <ion-note
+        class="text-sm"
+        *ngIf="
+          loginForm.get('password')?.dirty && !loginForm.get('password')?.valid
+        "
+        color="danger"
+        >Your password is required.</ion-note
+      >
+    </ion-item>
+    <ion-item>
+      <p slot="end">
+        <a
+          class="text-[15px] font-medium"
+          slot="end"
+          routerLink="/auth/signup"
+          style="color: var(--ion-color-secondary); text-decoration: none"
+          >Forgot Password</a
+        >
+      </p>
+    </ion-item>
+    <ion-button
+      class="w-[96%] ml-[2%] pl-2"
+      type="submit"
+      color="secondary"
+      expand="block"
+      >Sign in</ion-button
+    >
+    <ion-item>
+      <p class="leading-7 text-[15px]">
+        Don't have a Bloodstock account?<br /><a
+          class="font-semibold text-[17px]"
+          routerLink="/auth/signup"
+          style="color: var(--ion-color-secondary); text-decoration: none"
+          >Create an Account
+        </a>
+      </p>
+    </ion-item>
+  </ion-list>
+</form>

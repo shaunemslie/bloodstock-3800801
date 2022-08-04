@@ -1,8 +1,9 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { Select } from '@ngxs/store';
 import { AuthState } from '@bloodstock/mobile/shared/data-access/auth';
-import { filter, map, Observable, Subject, takeUntil, tap } from 'rxjs';
+import { filter, map, Observable } from 'rxjs';
 import { NavigationEnd, Router } from '@angular/router';
+import { User } from '@bloodstock/shared/interfaces';
 
 @Component({
   selector: 'bloodstock-root',
@@ -11,9 +12,7 @@ import { NavigationEnd, Router } from '@angular/router';
 })
 export class AppComponent {
   currentRoute = '/';
-  @Select(AuthState.isAuthenticated) isAuthenticated$:
-    | Observable<boolean>
-    | undefined;
+  @Select(AuthState.user) user$: Observable<User> | undefined | null;
 
   constructor(private router: Router) {
     this.router.events

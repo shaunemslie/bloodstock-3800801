@@ -11,7 +11,7 @@ import { HttpApi, Get } from 'ngx-decorator';
 export class HomeApiService {
   constructor(private httpClient: HttpClient) {}
 
-  @Get('feed')
+  @Get('user/feed')
   getFeed(params?: object): Observable<Feed[]> {
     return of();
   }

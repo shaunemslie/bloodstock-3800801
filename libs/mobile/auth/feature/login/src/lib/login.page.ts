@@ -1,14 +1,21 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { GoogleAuth, Login } from '@bloodstock/mobile/shared/data-access/auth';
+import { Store } from '@ngxs/store';
 
 @Component({
   selector: 'bloodstock-login',
   templateUrl: './login.page.html',
-  styles: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoginPageComponent {
+  constructor(private store: Store) {}
+
   login(loginForm: FormGroup) {
-    console.log(loginForm);
+    this.store.dispatch(new Login(loginForm.value));
+  }
+
+  googleAuth() {
+    this.store.dispatch(new GoogleAuth());
   }
 }

@@ -5,11 +5,11 @@
     </ion-buttons>
     <ion-title> Listings </ion-title>
     <ion-buttons slot="end">
-      <ion-button id="open-modal" color="secondary"> Filters (6) </ion-button>
+      <ion-button id="open-modal" color="secondary">Filters (6)</ion-button>
     </ion-buttons>
   </ion-toolbar>
   <ion-toolbar>
-    <ion-searchbar placeholder="Search Listings..."></ion-searchbar>
+    <ion-searchbar placeholder="Search All Listings..."></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
@@ -24,12 +24,14 @@
 </ion-content>
 
 <ng-template #filtersModalTpl="">
-  <ion-modal [swipeToClose]="true" trigger="open-modal">
+  <ion-modal trigger="open-modal">
     <ng-template>
       <ion-header collapse="fade">
         <ion-toolbar>
           <ion-buttons slot="start">
-            <ion-button color="secondary" (click)="dismissFilters()">Cancel</ion-button>
+            <ion-button color="secondary" (click)="dismissFilters()"
+              >Cancel</ion-button
+            >
           </ion-buttons>
           <ion-title> Filters (6) </ion-title>
           <ion-buttons slot="end">
@@ -40,12 +42,12 @@
 
       <ion-content>
         <ion-list>
-          <ion-item-divider></ion-item-divider>
+          <ion-item-divider class="min-h-[18px]"></ion-item-divider>
           <ion-item lines="none" button>
             <ion-label class="font-bold">Sort by</ion-label>
             <ion-note>Price/Bid Amt. (low to high)</ion-note>
           </ion-item>
-          <ion-item-divider></ion-item-divider>
+          <ion-item-divider class="min-h-[18px]"></ion-item-divider>
           <ion-list-header class="mt-0">
             <ion-label class="text-[17px] mt-0">
               Filter by (6 selected)
@@ -73,9 +75,17 @@
             <ion-label>Listing Type</ion-label>
             <ion-note>Auctions</ion-note>
           </ion-item>
-          <ion-item-divider class="min-h-[6px]"></ion-item-divider>
+          <ion-item-divider class="min-h-[18px]"></ion-item-divider>
+          <ion-item>
+            <ion-label>Show Listings From All Lofts</ion-label>
+            <ion-checkbox color="secondary" slot="end" checked></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Only From Verified Lofts</ion-label>
+            <ion-checkbox color="secondary" slot="end"></ion-checkbox>
+          </ion-item>
           <ion-item lines="full">
-            <ion-label>Hide Unverified Lofts</ion-label>
+            <ion-label>Only From Unverified Lofts</ion-label>
             <ion-checkbox color="secondary" slot="end"></ion-checkbox>
           </ion-item>
         </ion-list>
@@ -83,7 +93,9 @@
 
       <ion-footer class="ion-no-border">
         <ion-toolbar color="undefined">
-          <ion-button color="secondary" expand="block">Apply 6 Filters</ion-button>
+          <ion-button color="secondary" expand="block"
+            >Apply 6 Filters & Sort</ion-button
+          >
         </ion-toolbar>
       </ion-footer>
     </ng-template>

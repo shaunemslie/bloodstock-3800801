@@ -17,6 +17,5 @@ import { HomeState } from './+state/home.state';
   ],
   declarations: [HomePageComponent],
   exports: [HomePageComponent],
-  providers: []
 })
 export class HomeModule {}

@@ -1,7 +1,4 @@
-export interface User {
-  uid: string;
-  email: string;
-  displayName: string;
-  photoURL: string;
-  emailVerified: boolean;
-}
+import { User as prismaUser } from '@prisma/client';
+import { User as fireUser } from "firebase/auth";
+
+export interface User extends prismaUser, Partial<fireUser> {}

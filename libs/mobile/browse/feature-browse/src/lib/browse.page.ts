@@ -1,5 +1,6 @@
 import { Component, ChangeDetectionStrategy, ViewChild } from '@angular/core';
 import { IonModal, NavController } from '@ionic/angular';
+
 @Component({
   selector: 'bloodstock-browse',
   templateUrl: './browse.page.html',

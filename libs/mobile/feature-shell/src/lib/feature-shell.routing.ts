@@ -18,6 +18,14 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'profile',
+    canActivate: [AuthGuard],
+    loadChildren: () =>
+      import('@bloodstock/mobile/profile/feature/profile').then(
+        (m) => m.ProfileModule
+      ),
+  },
+  {
     path: 'browse',
     children: [
       {
@@ -33,9 +41,9 @@ const routes: Routes = [
           import('@bloodstock/mobile/browse/feature-browse').then(
             (m) => m.BrowseModule
           ),
-        pathMatch: 'full'
-      }
-    ]
+        pathMatch: 'full',
+      },
+    ],
   },
   {
     path: 'auth',
