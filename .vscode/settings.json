@@ -9,19 +9,6 @@
       "driver": "PostgreSQL",
       "name": "bloodstock",
       "connectString": "postgresql://postgres:zita%40Jones13!@0.0.0.0:5432/bloodstock?schema=public"
-    },
-    {
-      "mysqlOptions": {
-        "authProtocol": "default"
-      },
-      "previewLimit": 50,
-      "server": "localhost",
-      "port": 3306,
-      "askForPassword": true,
-      "driver": "MySQL",
-      "database": "quotes",
-      "username": "root",
-      "name": "quotes"
     }
   ],
   "vsicons.presets.angular": true
