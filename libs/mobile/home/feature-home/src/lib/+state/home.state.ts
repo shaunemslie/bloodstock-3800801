@@ -2,7 +2,7 @@ import { tap } from 'rxjs/operators';
 
 import { Injectable } from '@angular/core';
 import { Action, Selector, State, StateContext } from '@ngxs/store';
-import { append, patch } from '@ngxs/store/operators';
+import { patch } from '@ngxs/store/operators';
 
 import { HomeApiService } from '../home-api.service';
 import { InitFeed, LoadFeed } from './home.actions';
@@ -30,9 +30,7 @@ export class HomeState {
   initFeed(ctx: StateContext<HomeStateModel>, action: InitFeed) {
     return this.homeApiService.getFeed(action.payload).pipe(
       tap((listings: Feed[]) => {
-        ctx.setState({
-          listings: listings,
-        });
+        ctx.setState({ listings: listings });
       })
     );
   }
@@ -43,7 +41,7 @@ export class HomeState {
       tap((listings: Feed[]) => {
         ctx.setState(
           patch({
-            listings: append(listings),
+            listings: listings,
           })
         );
       })

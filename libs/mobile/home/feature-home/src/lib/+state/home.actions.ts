@@ -1,5 +1,3 @@
-import { Observable } from "rxjs";
-
 export class InitFeed {
   static readonly type = '[Home] InitFeed User';
   constructor(public payload: { id: string | undefined }) {}
